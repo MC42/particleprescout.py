@@ -22,7 +22,7 @@ def getDistricts(year):
 	return jsonif
 
 def getDistrictTeams(district):
-	myRequest = (baseURL + "district/"+ district + "/2017/teams")
+	myRequest = (baseURL + "district/"+ district + "/" + year+ "/teams")
 	response = requests.get(myRequest, headers=header)
 	jsonified = response.json()
 	teams = []
@@ -75,7 +75,7 @@ def theBeginning():
 	matchKey=""
 	#matchKey = "https://thebluealliance.com/match/"
 	for i in teams:
-		myRequest = (baseURL + 'team/frc'+ str(i) + '/2017/events')
+		myRequest = (baseURL + 'team/frc'+ str(i) + '/'+ year + '/events')
 		response = requests.get(myRequest, headers=header)
 		jsonified = response.json()
 
